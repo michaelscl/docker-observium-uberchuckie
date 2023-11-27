@@ -10,7 +10,8 @@ services:
       - observium-logs:/opt/observium/logs
       - observium-rrd:/opt/observium/rrd
     ports:
-      - "8889:8668"
+      - "8888:8668"
+      - "5149:514/udp"
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "nmap", "-p", "8668", "localhost", "|",  "grep", "open", "&&", "exit", "0", "||", "exit", "1" ]
